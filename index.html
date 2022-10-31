@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+p3 {
+  font-size:60px
+  
+}
+table.center {
+  margin-left: auto; 
+  margin-right: auto;
+}
+ body {font-family: Arial, Helvetica, sans-serif;}
+ button {
+  border: 0px solid black;
+  padding:9px;
+  border-radius: 25px;
+  font-size:20px;
+  background-color:transparent;
+  cursor: pointer;
+ }
+ 
+ input {
+  border: 2px solid black;
+  padding:5px;
+  padding-left:15px;
+  border-radius: 25px;
+  font-size:20px;
+}
+
+.padding {
+  padding-left:20%;
+  padding-right:20%;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+tr {
+  border-bottom: 0px solid #ddd;
+}
+a:link {
+  color: black;
+  text-decoration: none;
+}
+a:visited {
+  color: black;
+  text-decoration: none;
+}
+a:hover {
+  color: black;
+  text-decoration: underline;
+}
+a:active {
+  color: black;
+  text-decoration: underline;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.top-banner {
+  margin-bottom: 30px;
+  text-align: center;
+  background-color: #ea4c4c;
+}
+
+.top-banner a, .top-banner span {
+  display: inline-block;
+}
+
+.top-banner a {
+  width: 100%;
+  padding: 5px 0;
+  text-decoration: none;
+  color: white;
+  background-color: black;
+}
+
+</style>
+<body>
+<div class="top-banner">
+  <a href="https://github.com/darkreader/darkreader"><b>This site is optimised for dark mode with  <img src="https://raw.githubusercontent.com/LordGnomeMBE/SocialSearch/main/DarkReaderIcon.png" width="20" height="15"> DarkReader!</b></a>
+</div>
+
+<center>
+<p3><b>Social</b>Search</p3></br>
+<sup style="font-size:20px">By <a href="https://github.com/LordGnomeMBE" style="text-decoration:underline">LordGnomeMBE</a></sup>
+<p style="padding:10px">Search across every social media platform. I've included, where I know of them, open source frontends as well as the offial site. If i've missed a platform, or (quite likely) an alternative frontend, please <a href="https://reddit.com/u/lordgnomembe" style="text-decoration:underline">contact me</a>. This site is inspired by <a href="https://sector035.nl/articles/2022-42" style="text-decoration:underline">this post by Sector035</a> and <a href="https://github.com/C3n7ral051nt4g3ncy/OSINT-Bookmarklets/blob/main/Heavy_Social.md" style="text-decoration:underline">this code by C3n7ral051nt4g3ncy</a>.</p>
+</center>
+
+</br>
+<center>
+<input type="text" id="myText" placeholder="Enter username" > <button onclick="myFunction()"><i style="font-size:24px" class="fa fa-rotate-90">&#xf002;</i></button>
+<center>
+
+<div class="padding">
+<table class="center">
+    <tr>
+    <td> </td>
+  </tr>
+
+  <tr>
+    <td><span id="username" style="font-size:20px"></span></td>
+  </tr>
+    <tr>
+    <td> </td>
+  </tr>
+  <tr>
+    <td><span id="twitter"><center><i style="font-size:80px" class="fa">&#xf11c;</i></br><p style="font-size:30px">To start, type a username in the searchbar.</p></center></span></td>
+  </tr>
+  <tr>
+    <td><span id="twittersearch" style="text-indent: 100%;"></span</td>
+  </tr>
+  <tr>
+    <td><span id="nitter" style="text-indent: 100%;"></span></td>
+  </tr>
+  <tr>
+    <td><span id="nittersearch" style="text-indent: 100%;"></span></td>
+  </tr>
+    <tr>
+    <td><span id="facebook"></span></td>
+  </tr>
+      <tr>
+    <td><span id="linkedin"></span></td>
+  </tr>
+      <tr>
+    <td><span id="Instagram"></span></td>
+  </tr>
+      <tr>
+    <td><span id="TikTok"></span></td>
+  </tr>
+      <tr>
+    <td><span id="VK"></span></td>
+  </tr>
+      <tr>
+    <td><span id="VKsearch"></span></td>
+  </tr>
+      <tr>
+    <td><span id="twitch"></span></td>
+  </tr>
+      <tr>
+    <td><span id="twitchsearch"></span></td>
+  </tr>
+      <tr>
+    <td><span id="YouTubesearch"></span></td>
+  </tr>
+      <tr>
+    <td><span id="Snapchat"></span></td>
+  </tr>
+      <tr>
+    <td><span id="Reddit"></span></td>
+  </tr>
+      <tr>
+    <td><span id="Redditsearch"></span></td>
+  </tr>
+      <tr>
+    <td><span id="Pinterest"></span></td>
+  </tr>
+      <tr>
+    <td><span id="Pinterestsearch"></span></td>
+  </tr>
+      <tr>
+    <td><span id="Telegram"></span></td>
+  </tr>
+
+</table>
+</div>
+</br></br>
+<script>
+function myFunction() {
+  var username = document.getElementById("myText").value;
+  document.getElementById("username").innerHTML = "Searching for <i>" + username + "</i>";
+  var twitter = "https://twitter.com/" + username;
+  document.getElementById("twitter").innerHTML = "<i style='font-size:20px' class='fa'>&#xf099;</i> <a href='" + twitter + "' target='_blank'>View user on Twitter &#8594;</a>";
+  var nitter = "https://nitter.it/" + username;
+  document.getElementById("nitter").innerHTML = "&zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj;<a href='" + nitter + "'target='_blank'>View user on Nitter &#8594;</a>";
+  var twittersearch = "https://twitter.com/search?q=" + username;
+  document.getElementById("twittersearch").innerHTML = "&zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj;<a href='" + twittersearch + "'target='_blank'>Search for username on Twitter &#8594;</a>";
+  var nittersearch = "https://nitter.it/search?q=" + username;
+  document.getElementById("nittersearch").innerHTML = "&zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj;<a href='" + nittersearch + "'target='_blank'>Search for username on Nitter &#8594;</a>";
+  var facebook = "https://facebook.com/" + username;
+  document.getElementById("facebook").innerHTML = "<i class='fa fa-facebook-f' style='font-size:20px'></i> <a href='" + facebook + "' target='_blank'>View user on Facebook &#8594;</a>";
+  var linkedin = "";
+  document.getElementById("linkedin").innerHTML = "<i class='fa fa-linkedin' style='font-size:20px'></i> <i>LinkedIn coming soon</i>";
+  var Instagram = "https://instagram.com/" + username;
+  document.getElementById("Instagram").innerHTML = "<i style='font-size:20px' class='fa'>&#xf16d;</i> <a href='" + Instagram + "' target='_blank'>View user on Instagram &#8594;</a>";
+  var TikTok = "https://tiktok.com/@" + username;
+  document.getElementById("TikTok").innerHTML = "<i style='font-size:20px' class='fa'>&#xf0c1;</i> <a href='" + TikTok + "' target='_blank'>View user on TikTok &#8594;</a>";
+  var VK = "https://vk.com/" + username;
+  document.getElementById("VK").innerHTML = "<i style='font-size:20px' class='fa'>&#xf189;</i> <a href='" + VK + "' target='_blank'>View user on VK &#8594;</a>";
+  var VKsearch = "https://vk.com/search?q=" + username;
+  document.getElementById("VKsearch").innerHTML = "&zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj;<a href='" + VKsearch + "'target='_blank'>Search for username on VK &#8594;</a>";
+  var twitch = "https://twitch.tv/" + username;
+  document.getElementById("twitch").innerHTML = "<i style='font-size:20px' class='fa'>&#xf1e8;</i> <a href='" + twitch + "' target='_blank'>View user on twitch &#8594;</a>";
+  var twitchsearch = "https://www.twitch.tv/search?term=" + username;
+  document.getElementById("twitchsearch").innerHTML = "&zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj;<a href='" + twitchsearch + "'target='_blank'>Search for username on Twitch &#8594;</a>";
+  var YouTubesearch = "https://www.youtube.com/results?search_query=" + username;
+  document.getElementById("YouTubesearch").innerHTML = "<i style='font-size:20px' class='fa'>&#xf16a</i> <a href='" + YouTubesearch + "' target='_blank'>Search for username on YouTube &#8594;</a>";
+  var Snapchat = "https://snapchat.com/add/" + username;
+  document.getElementById("Snapchat").innerHTML = "<i style='font-size:20px' class='fa'>&#xf2ab;</i> <a href='" + Snapchat + "' target='_blank'>View user on Snapchat &#8594;</a>";
+  var Reddit = "https://reddit.com/u/" + username;
+  document.getElementById("Reddit").innerHTML = "<i style='font-size:20px' class='fa'>&#xf1a1;</i> <a href='" + Reddit + "' target='_blank'>View user on Reddit &#8594;</a>";
+  var Redditsearch = "https://www.reddit.com/search/?q=" + username;
+  document.getElementById("Redditsearch").innerHTML = "&zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj;<a href='" + Redditsearch + "'target='_blank'>Search for username on Reddit &#8594;</a>";
+  var Pinterest = "https://www.pinterest.co.uk/" + username;
+  document.getElementById("Pinterest").innerHTML = "<i style='font-size:20px' class='fa'>&#xf0d2;</i> <a href='" + Pinterest + "' target='_blank'>View user on Pinterest &#8594;</a>";
+  var Pinterestsearch = "https://www.pinterest.co.uk/search/pins/?q=" + username;
+  document.getElementById("Pinterestsearch").innerHTML = "&zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj;<a href='" + Pinterestsearch + "'target='_blank'>Search for username on Pinterest &#8594;</a>";
+  var Telegram = "https://t.me/" + username;
+  document.getElementById("Telegram").innerHTML = "<i style='font-size:20px' class='fa'>&#xf2c6;</i> <a href='" + Telegram + "' target='_blank'>View user on Telegram &#8594;</a>";
+
+}
+</script>
+
+</body>
+</html>
