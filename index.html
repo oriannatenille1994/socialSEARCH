@@ -84,13 +84,41 @@ a:active {
   color: white;
   background-color: black;
 }
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.top-banner2 {
+  margin-bottom: 30px;
+  text-align: center;
+  background-color: #ea4c4c;
+}
+
+.top-banner2 a, .top-banner2 span {
+  display: inline-block;
+}
+
+.top-banner2 a {
+  width: 100%;
+  padding: 5px 0;
+  text-decoration: none;
+  color: white;
+  background-color: red;
+}
 
 </style>
 <body>
 <div class="top-banner">
   <a href="https://github.com/darkreader/darkreader"><b>This site is optimised for dark mode with  <img src="https://raw.githubusercontent.com/LordGnomeMBE/SocialSearch/main/DarkReaderIcon.png" width="20" height="15"> DarkReader!</b></a>
+<div class="top-banner2">
+  <a><b>New! </b>You can now export username URLs as raw data.</a>
 </div>
-
+</div>
 <center>
 <p3><b>Social</b>Search</p3></br>
 <sup style="font-size:20px">By <a href="https://github.com/LordGnomeMBE" style="text-decoration:underline">LordGnomeMBE</a></sup>
@@ -171,55 +199,127 @@ a:active {
       <tr>
     <td><span id="Telegram"></span></td>
   </tr>
+      <tr>
+    <td><span id="RawDataButton"></span></td>
+  </tr>
 
 </table>
 </div>
 </br></br>
+<span id="globaltwitter"></span>
+</br>
 <script>
+var globalusername = "";
+var globaltwitter = "";
+var globaltwittersearch = "";
+var globalnitter = "";
+var globalnittersearch = "";
+var globalfacebook = "";
+var globalinstagram = "";
+var globaltiktok = "";
+var globalvk = "";
+var globalvksearch = "";
+var globaltwitch = "";
+var globaltwitchsearch = "";
+var globalyoutubesearch = "";
+var globalsnapchat = "";
+var globalreddit = "";
+var globalredditsearch = "";
+var globalpinterest = "";
+var globalpinterestsearch = "";
+var globaltelegram = "";
+
 function myFunction() {
+
   var username = document.getElementById("myText").value;
+  globalusername = username;
   document.getElementById("username").innerHTML = "Searching for <i>" + username + "</i>";
+    
   var twitter = "https://twitter.com/" + username;
+  globaltwitter = twitter;
   document.getElementById("twitter").innerHTML = "<i style='font-size:20px' class='fa'>&#xf099;</i> <a href='" + twitter + "' target='_blank'>View user on Twitter &#8594;</a>";
+    
   var nitter = "https://nitter.it/" + username;
+  globalnitter = nitter;
   document.getElementById("nitter").innerHTML = "&zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj;<a href='" + nitter + "'target='_blank'>View user on Nitter &#8594;</a>";
+  
   var twittersearch = "https://twitter.com/search?q=" + username;
+  globaltwittersearch = twittersearch;
+  globaltwittersearch = twittersearch;
   document.getElementById("twittersearch").innerHTML = "&zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj;<a href='" + twittersearch + "'target='_blank'>Search for username on Twitter &#8594;</a>";
+  
   var nittersearch = "https://nitter.it/search?q=" + username;
+  globalnittersearch = nittersearch;
   document.getElementById("nittersearch").innerHTML = "&zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj;<a href='" + nittersearch + "'target='_blank'>Search for username on Nitter &#8594;</a>";
+  
   var facebook = "https://facebook.com/" + username;
+  globalfacebook = facebook;
   document.getElementById("facebook").innerHTML = "<i class='fa fa-facebook-f' style='font-size:20px'></i> <a href='" + facebook + "' target='_blank'>View user on Facebook &#8594;</a>";
+  
   var linkedin = "";
   document.getElementById("linkedin").innerHTML = "<i class='fa fa-linkedin' style='font-size:20px'></i> <i>LinkedIn coming soon</i>";
+  
   var Instagram = "https://instagram.com/" + username;
+  globalinstagram = Instagram;
   document.getElementById("Instagram").innerHTML = "<i style='font-size:20px' class='fa'>&#xf16d;</i> <a href='" + Instagram + "' target='_blank'>View user on Instagram &#8594;</a>";
+  
   var TikTok = "https://tiktok.com/@" + username;
+  globaltiktok = TikTok;
   document.getElementById("TikTok").innerHTML = "<i style='font-size:20px' class='fa'>&#xf0c1;</i> <a href='" + TikTok + "' target='_blank'>View user on TikTok &#8594;</a>";
+  
   var VK = "https://vk.com/" + username;
+  globalvk = VK;
   document.getElementById("VK").innerHTML = "<i style='font-size:20px' class='fa'>&#xf189;</i> <a href='" + VK + "' target='_blank'>View user on VK &#8594;</a>";
+  
   var VKsearch = "https://vk.com/search?q=" + username;
+  globalvksearch = VKsearch;
   document.getElementById("VKsearch").innerHTML = "&zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj;<a href='" + VKsearch + "'target='_blank'>Search for username on VK &#8594;</a>";
+  
   var twitch = "https://twitch.tv/" + username;
+  globaltwitch = twitch;
   document.getElementById("twitch").innerHTML = "<i style='font-size:20px' class='fa'>&#xf1e8;</i> <a href='" + twitch + "' target='_blank'>View user on twitch &#8594;</a>";
+  
   var twitchsearch = "https://www.twitch.tv/search?term=" + username;
+  globaltwitchsearch = twitchsearch;
   document.getElementById("twitchsearch").innerHTML = "&zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj;<a href='" + twitchsearch + "'target='_blank'>Search for username on Twitch &#8594;</a>";
+  
   var YouTubesearch = "https://www.youtube.com/results?search_query=" + username;
+    globalyoutubesearch = YouTubesearch;
   document.getElementById("YouTubesearch").innerHTML = "<i style='font-size:20px' class='fa'>&#xf16a</i> <a href='" + YouTubesearch + "' target='_blank'>Search for username on YouTube &#8594;</a>";
+  
   var Snapchat = "https://snapchat.com/add/" + username;
+  globalsnapchat = Snapchat;
   document.getElementById("Snapchat").innerHTML = "<i style='font-size:20px' class='fa'>&#xf2ab;</i> <a href='" + Snapchat + "' target='_blank'>View user on Snapchat &#8594;</a>";
+  
   var Reddit = "https://reddit.com/u/" + username;
+    globalreddit = Reddit;
   document.getElementById("Reddit").innerHTML = "<i style='font-size:20px' class='fa'>&#xf1a1;</i> <a href='" + Reddit + "' target='_blank'>View user on Reddit &#8594;</a>";
+  
   var Redditsearch = "https://www.reddit.com/search/?q=" + username;
+    globalredditsearch = Redditsearch;
   document.getElementById("Redditsearch").innerHTML = "&zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj;<a href='" + Redditsearch + "'target='_blank'>Search for username on Reddit &#8594;</a>";
+  
   var Pinterest = "https://www.pinterest.co.uk/" + username;
+  globalpinterest = Pinterest;
   document.getElementById("Pinterest").innerHTML = "<i style='font-size:20px' class='fa'>&#xf0d2;</i> <a href='" + Pinterest + "' target='_blank'>View user on Pinterest &#8594;</a>";
+  
   var Pinterestsearch = "https://www.pinterest.co.uk/search/pins/?q=" + username;
+    globalpinterestsearch = Pinterestsearch;
   document.getElementById("Pinterestsearch").innerHTML = "&zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj;<a href='" + Pinterestsearch + "'target='_blank'>Search for username on Pinterest &#8594;</a>";
+  
   var Telegram = "https://t.me/" + username;
+    globaltelegram = Telegram;
   document.getElementById("Telegram").innerHTML = "<i style='font-size:20px' class='fa'>&#xf2c6;</i> <a href='" + Telegram + "' target='_blank'>View user on Telegram &#8594;</a>";
-
 }
-</script>
+var clicked = function () {
+  var new_page = window.open();
+  var a = "<h style='font-family: Arial, Helvetica, sans-serif;font-size:30px'>Social links for username <b> " + globalusername + "</b></h><p style='font-family: Arial, Helvetica, sans-serif;'>Save as HTML (ctrl/cmd + s) or pdf (ctrl/cmd + p &#8594; Save to PDF) to view this data later</br>Only links for which accounts exist will work.</p><p style='font-family: Arial, Helvetica, sans-serif;'><i>Generated by Lord Gnome's <b>Social</b>Search</br></i><a href = 'https://lordgnomembe.github.io/socialsearch'>lordgnomembe.github.io/socialsearch</a></i></br></br><b>Twitter:</b> " + globaltwitter + "</br><b>Twitter Search:</b> " + globaltwittersearch + "</br><b>Nitter:</b> " + globalnitter + "</br><b>Nitter Search:</b> " + globalnittersearch + "</br><b>Facebook:</b> " + globalfacebook + "</br><b>Instagram:</b> " + globalinstagram + "</br><b>TikTok: </b>" + globaltiktok + "</br><b>VK:</b> " + globalvk + "</br><b>VK search:</b> " + globalvksearch + "</br><b>Twitch:</b> " + globaltwitch + "</br><b>Twitch Search:</b> " + globaltwitchsearch + "</br><b>YouTube search:</b> " + globalyoutubesearch + "</br><b>Snapchat: </b>" + globalsnapchat + "</br><b>Reddit: </b>" + globalreddit + "</br><b>Reddit Search: </b>" + globalredditsearch + "</br><b>Pinterest: </b>" + globalpinterest + "</br><b>Pinterest Search:</b> " + globalpinterestsearch + "</br><b>Telegram:</b> " + globaltelegram + "</p>";
+  new_page.document.write(a);
+}
 
+</script>
+</br>
+<button onclick='clicked()'>View Raw Data for this username</button>
+</br></br>
 </body>
 </html>
